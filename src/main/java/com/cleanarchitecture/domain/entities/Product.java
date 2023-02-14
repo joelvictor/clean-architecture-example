@@ -1,19 +1,16 @@
 package com.cleanarchitecture.domain.entities;
 
-import jakarta.persistence.*;
+import java.math.BigDecimal;
+
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
-
-@Table(name = "product")
-@Entity(name = "Product")
 @Data
 @NoArgsConstructor
+@Builder
 public class Product {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String name;
@@ -26,4 +23,10 @@ public class Product {
         this.price = price;
     }
 
+    public Product(Long id, String name, String description, BigDecimal price) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+    }
 }

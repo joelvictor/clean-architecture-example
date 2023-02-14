@@ -20,10 +20,10 @@ public class CleanArchitectureTests {
                     .layer("api").definedBy("..api..")
                     .layer("application").definedBy("..application..")
                     .layer("domain").definedBy("..domain..")
-//                    .layer("infrastructure").definedBy("..infrastructure..")
+                    .layer("infrastructure").definedBy("..infrastructure..")
 
                     .whereLayer("api").mayNotBeAccessedByAnyLayer()
-//                    .whereLayer("infrastructure").mayOnlyBeAccessedByLayers("api")
-//                    .whereLayer("application").mayOnlyBeAccessedByLayers("api", "infrastructure");
+                    .whereLayer("infrastructure").mayOnlyBeAccessedByLayers("api")
+                    .whereLayer("application").mayOnlyBeAccessedByLayers("api", "infrastructure")
                     .whereLayer("application").mayOnlyBeAccessedByLayers("api");
 }
